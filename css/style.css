@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+    background-color: #FEFDF4;
+    color: white;
+    display: grid;
+    display: grid;
+    grid-template-columns: .5fr 1fr .5fr repeat(2, 0);
+    grid-template-rows: .0fr .5fr .5fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#header {
+   grid-area: 1 / 1 / 2 / 4; 
+  background-color: #18C894;
+  color: #FEFDF4;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+  height: 50px;
+}
+
+header h1 {
+  margin: 0;
+}
+#aside{
+   grid-area: 2 / 1 / 4 / 2;
+}
+
+nav {
+  background-color: #FFC763;
+  padding: 10px;
+  text-align: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+nav a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+#main {
+    grid-area: 2 / 2 / 4 / 3;
+}
+#main section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 80px; /* Para evitar que las publicaciones se oculten detrás del encabezado fijo */
+  gap: 20px;
+}
+
+#main section article {
+  text-align: center;
+  padding: 15px;
+  background-color: #FFAA3C;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-shadow: 2px 5px 2px black;
+  margin: 20px 0;
+}
+#mensajes{
+    grid-area: 2 / 3 / 4 / 4;
+    color: black;
+    background-color: #FFC763;
+    padding: 10px;
+    height: 100%;
+    font-weight: bold;
+    
+}
+
+#footer {
+    grid-area: 5 / 1 / 6 / 4;
+  background-color: #FF4456;
+  color: #FEFDF4;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}

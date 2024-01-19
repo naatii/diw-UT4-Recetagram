@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <title>Recetagram - Red Social de Cocineros</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fredoka', sans-serif;
+        background-color: white;
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) repeat(2, 0);
+        grid-template-rows: repeat(2, 1fr) repeat(2, 0) 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    #header {
+       grid-area: 1 / 1 / 2 / 4; 
+       background-color: gray;
+      color: #000000;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+    #aside{
+       grid-area: 2 / 1 / 3 / 2; 
+    }
+
+    nav {
+      background-color: gray;
+      padding: 10px;
+      text-align: left;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4em;
+    }
+    nav a {
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #main {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    #main section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 80px; /* Para evitar que las publicaciones se oculten detrás del encabezado fijo */
+    }
+
+    #main section article {
+      flex: 0 0 calc(33.33% - 20px);
+      text-align: center;
+      margin: 10px;
+      padding: 15px;
+      background-color: gray;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      text-shadow: 10px 10px 10px 20px rgba(0, 0, 0, 0.0);
+    }
+    #mensajes{
+        grid-area: 2 / 3 / 3 / 4;
+        color: black;
+        background: gray;
+        height: 100%;
+        padding: 10px;
+    }
+
+    #footer {
+        grid-area: 5 / 1 / 6 / 4;
+      background-color: gray;
+      color: #FEFDF4;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <h1>Recetagram</h1>
+  </header>
+  <aside id="aside">
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Explorar</a>
+        <a href="#">Subir Receta</a>
+        <a href="#">Perfil</a>
+      </nav>    
+  </aside>
+
+  <main id="main">
+    <section>
+        <!-- Ejemplo de publicación -->
+        <article>
+            <h2>Nombre de la Receta</h2>    
+            <img src="https://via.placeholder.com/250x250" alt="Imagen de la receta">
+            <p>Descripción corta de la receta. #Deliciosa #Cocina</p>
+        </article>
+    
+        <!-- Puedes agregar más artículos para representar otras publicaciones de usuarios -->
+      </section>
+  </main>
+
+  <aside id="mensajes">
+    <p>mensajes</p>
+  </aside>
+
+  <footer id="footer">
+    <p>&copy; 2024 Recetagram - Comparte tu cocina</p>
+  </footer>
+</body>
+</html>
