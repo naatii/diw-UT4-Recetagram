@@ -10,7 +10,7 @@ Recetagram es una vibrante comunidad en línea diseñada exclusivamente para apa
 
 Recetagram va más allá de ser una simple red social; es un lugar donde la cocina se convierte en una forma de expresión artística y cultural. Los miembros pueden explorar un flujo continuo de inspiración culinaria, desde recetas tradicionales hasta innovadoras creaciones gastronómicas. La plataforma fomenta la interacción a través de comentarios, likes y compartiendo experiencias, creando así una comunidad unida y apasionada.
 
-##Funcionalidades Clave:
+## Funcionalidades Clave:
 
 1. Explorar Recetas: Los usuarios pueden descubrir nuevas recetas de cocina de diversos estilos y culturas.
 2. Compartir Creaciones: Los chefs pueden compartir sus propias recetas, fotos y experiencias culinarias con la comunidad.
