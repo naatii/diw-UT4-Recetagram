@@ -19,3 +19,7 @@ Recetagram va más allá de ser una simple red social; es un lugar donde la coci
 
 
 Recetagram, con su paleta de colores vibrantes y su enfoque en la conexión y el intercambio, se convierte en el lugar perfecto para que los entusiastas de la cocina se inspiren mutuamente y celebren la diversidad del mundo culinario. ¡Únete a Recetagram y descubre un universo de sabores e historias culinarias!
+
+## Apartado de donaciones
+
+[donaciones]("https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q")
