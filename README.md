@@ -23,4 +23,5 @@ Recetagram, con su paleta de colores vibrantes y su enfoque en la conexión y el
 
 ## Apartado de donaciones
 
-![[donaciones](https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q)](./assets/Boton-Donar.png)
+[![Donaciones](./assets/Boton-Donar.png)](https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q)
+
