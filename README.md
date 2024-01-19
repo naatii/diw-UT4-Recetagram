@@ -7,6 +7,7 @@
 Recetagram es una vibrante comunidad en línea diseñada exclusivamente para apasionados cocineros que desean compartir su arte culinario y conocimientos con otros amantes de la cocina. Inspirada en la filosofía de "compartir es vivir", esta red social proporciona un espacio acogedor y creativo donde los chefs, tanto aficionados como profesionales, pueden conectar, explorar nuevas recetas y aprender unos de otros.
 
 ## Concepto:
+![Descripcion](./assets/proyecto%201.png)
 
 Recetagram va más allá de ser una simple red social; es un lugar donde la cocina se convierte en una forma de expresión artística y cultural. Los miembros pueden explorar un flujo continuo de inspiración culinaria, desde recetas tradicionales hasta innovadoras creaciones gastronómicas. La plataforma fomenta la interacción a través de comentarios, likes y compartiendo experiencias, creando así una comunidad unida y apasionada.
 
@@ -22,4 +23,4 @@ Recetagram, con su paleta de colores vibrantes y su enfoque en la conexión y el
 
 ## Apartado de donaciones
 
-[donaciones](https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q)
+![[donaciones](https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q)](./assets/Boton-Donar.png)
