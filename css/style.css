@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+
+}
 body {
     margin: 0;
     padding: 0;
@@ -5,11 +9,11 @@ body {
     background-color: #FEFDF4;
     color: white;
     display: grid;
-    display: grid;
     grid-template-columns: .5fr 1fr .5fr repeat(2, 0);
     grid-template-rows: .0fr .5fr .5fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    width: 100%;
 }
 
 #header {
@@ -20,7 +24,7 @@ body {
   text-align: center;
   width: 100%;
   z-index: 1000;
-  height: 50px;
+  height: 80px;
 }
 
 header h1 {
@@ -37,6 +41,7 @@ nav {
   height: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 4em;
 }
 nav a {
@@ -45,7 +50,8 @@ nav a {
   text-decoration: none;
 }
 #main {
-    grid-area: 2 / 2 / 4 / 3;
+  grid-area: 2 / 2 / 4 / 3;
+  width: 100%;
 }
 #main section {
   display: flex;
@@ -61,19 +67,37 @@ nav a {
   padding: 15px;
   background-color: #FFAA3C;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-weight: bold;
-  text-shadow: 2px 5px 2px black;
   margin: 20px 0;
+  color: black;
 }
-#mensajes{
-    grid-area: 2 / 3 / 4 / 4;
-    color: black;
-    background-color: #FFC763;
-    padding: 10px;
-    height: 100%;
-    font-weight: bold;
-    
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #18C894; /* Color de las bolitas */
+  border-radius: 50%;
+  animation: particleAnimation 1s ease-out;
+  margin-left: 10px;
+}
+
+@keyframes particleAnimation {
+  to {
+    transform: translate(0, -30px) scale(0);
+    opacity: 0;
+  }
+}
+#mensajes {
+  grid-area: 2 / 3 / 4 / 4;
+  color: black;
+  background-color: #FFC763;
+  padding: 10px;
+  height: 100%;
+  font-weight: bold;
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  width: 100%;
+  margin: 0;
 }
 
 #footer {
@@ -84,4 +108,26 @@ nav a {
   text-align: center;
   bottom: 0;
   width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  #mensajes{
+    display: none;
+  }
+  #aside {
+    grid-area: 5 / 1 / 6 / 4;
+    /* Mover el aside debajo del contenido principal */
+  }
+
+  nav {
+    flex-direction: row; /* Alinear los iconos horizontalmente en dispositivos móviles */
+    justify-content: space-around; /* Espaciar los iconos horizontalmente en dispositivos móviles */
+    align-content: center;
+    gap: 10px;
+
+  }
+
+  #footer {
+    display: none; /* Ocultar el footer en dispositivos móviles */
+  }
 }
