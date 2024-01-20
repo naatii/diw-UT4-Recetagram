@@ -25,3 +25,28 @@ Recetagram, con su paleta de colores vibrantes y su enfoque en la conexión y el
 
 [![Donaciones](./assets/Boton-Donar2.png)](https://www.paypal.com/donate/?hosted_button_id=EB3DVQQSPB88Q)
 
+## Lista de ideas a implementar
+
+- [x] **Diseñar wirefrme**
+- [x] **Diseñar maqueta**
+- [x] **Integrar maqueta a código**
+- [x] **Hacer README**
+- [x] **Publicar en redes**
+- [x] **Añadir botón de donaciones**
+- [x] **Diseño Responsive**
+- [x] **Implementar Iconos**
+- [x] **Implementar Sistema de "Likes"**
+- [ ] **Implementar Comentarios**
+- [ ] **Implementar Sistema de Compartir**
+- [ ] **Implementar Perfiles por Cada Persona**
+- [ ] **Implementar Sistema de Aprobación de Publicaciones**
+- [ ] **Búsqueda de Recetas**
+- [ ] **Categorización de Recetas**
+- [ ] **Sistema de Mensajería Privada**
+- [ ] **Edición del perfil del usuario**
+- [ ] **Notificaciones**
+- [ ] **Estadísticas de Recetas**
+- [ ] **Recetas Destacadas**
+- [ ] **Integración de Videos**
+- [ ] **Funcionalidades de Edición de Recetas**
+- [ ] **Eventos de Cocina**
