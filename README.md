@@ -40,7 +40,7 @@ Recetagram, con su paleta de colores vibrantes y su enfoque en la conexión y el
 - [ ] **Implementar roles de admins 🍴**
 - [ ] **Implementar roles de moderador 🍽️**
 - [ ] **Implementar roles de verificado ✅**
-- [ ] **Implementar Sistema de Compartir**
+- [x] **Implementar Sistema de Compartir**
 - [ ] **Implementar Perfiles por Cada Persona**
 - [ ] **Implementar Sistema de Aprobación de Publicaciones**
 - [ ] **Búsqueda de Recetas**
