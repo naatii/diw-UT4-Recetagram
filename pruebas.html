@@ -1,217 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contador de Utensilios con Like/Unlike y Animación</title>
-  <!-- Incluir el enlace a la biblioteca de FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-
-    #main {
-      position: relative;
-    }
-
-    #publicaciones {
-      position: relative;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #FF4456;
-      border-radius: 50%;
-      animation: particleAnimation 1s ease-out;
-    }
-
-    @keyframes particleAnimation {
-      to {
-        transform: translate(0, -30px) scale(0);
-        opacity: 0;
-      }
-    }
-
-    /* Añadido para la animación de clic al tenedor */
-    .fa-utensils:active {
-      transform: scale(0.9);
-      transition: transform 0.1s;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./assets/descarga.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0a9ccace35.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <title>Pruebas</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header id="header">
+    <i class="fa-solid fa-bell fa-lg notificaciones"></i>
+    <h1>Recetagram </h1>
+    <i class="fa-solid fa-message fa-lg mensaje"></i>
+    
+  </header>
+  <aside id="aside">
+      <nav>
+        <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Explorar</a>
+        <a href="#"><i class="fa-solid fa-upload"></i> Crear</a>
+        <a href="#"><i class="fa-solid fa-user"></i> Perfil</a>
+        <a id="mensajes"><i class="fa-solid fa-message mensajes"></i> mensajes</a>
+      </nav>    
+  </aside>
 
   <main id="main">
     <section id="publicaciones"></section>
   </main>
 
-  <script>
-    let contador = 0;
-    let liked = false;
+  <aside id="mensajes">
+    
+  </aside>
 
-    function toggleLike(postIndex) {
-  const tenedorIcon = document.getElementById(`tenedor${postIndex}`);
-
-  if (liked) {
-    contador--;
-    liked = false;
-  } else {
-    contador++;
-    liked = true;
-
-    // Obtener las coordenadas del icono del tenedor
-    const rect = tenedorIcon.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Agregar partículas alrededor del icono del tenedor
-    const numParticles = 20;
-
-    for (let i = 0; i < numParticles; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-
-      // Calcular posición alrededor del icono del tenedor
-      const angle = Math.random() * 2 * Math.PI;
-      const distance = 10 + Math.random() * 20; // Distancia entre 10px y 30px
-      const particleX = centerX + distance * Math.cos(angle);
-      const particleY = centerY + distance * Math.sin(angle);
-
-      particle.style.top = `${particleY}px`;
-      particle.style.left = `${particleX}px`;
-
-      document.body.appendChild(particle);
-    }
-
-    setTimeout(() => {
-      document.querySelectorAll('.particle').forEach(particle => particle.remove());
-    }, 1000);
-  }
-
-  document.getElementById(`numeroTenedor${postIndex}`).textContent = contador;
-  tenedorIcon.classList.toggle('fas', liked);
-  tenedorIcon.classList.toggle('far', !liked);
-}
-
-
-    function crearPublicacion(username, titulo, imagenSrc, descripcion, fotoUsuarioPerfil, postIndex) {
-      const section = document.getElementById('publicaciones');
-      const article = document.createElement('article');
-      const span = document.createElement('div');
-      span.style.display = 'flex';
-      span.style.gap = '10px';
-
-      const nombreUsuario = document.createElement('p');
-      nombreUsuario.textContent = username;
-
-      const fotoPerfil = document.createElement('img');
-      fotoPerfil.src = fotoUsuarioPerfil;
-      fotoPerfil.alt = 'Imagen de usuario';
-      fotoPerfil.style.width = '20%';
-      fotoPerfil.style.borderRadius = '100%';
-      fotoPerfil.style.float = 'left';
-
-      span.appendChild(fotoPerfil);
-      span.appendChild(nombreUsuario);
-
-      const tituloPost = document.createElement('h2');
-      tituloPost.textContent = titulo;
-      tituloPost.style.marginTop = '40px';
-
-      const img = document.createElement('img');
-      img.src = imagenSrc;
-      img.alt = 'Imagen de la receta';
-
-      const iconos = document.createElement('p');
-      iconos.style.display = 'flex';
-      iconos.style.gap = '10px';
-
-      const tenedor = document.createElement('i');
-      tenedor.id = `tenedor${postIndex}`;
-      tenedor.className = "fa-solid fa-utensils";
-      tenedor.style.cursor = 'pointer';
-      tenedor.addEventListener("click", () => toggleLike(postIndex));
-
-      const numeroTenedor = document.createElement('span');
-      numeroTenedor.id = `numeroTenedor${postIndex}`;
-      numeroTenedor.textContent = 0;
-
-      const comentario = document.createElement('i');
-      comentario.className = "fa-solid fa-comments";
-      const numeroComentario = document.createElement('span');
-      numeroComentario.textContent = 0;
-
-      const compartir = document.createElement('i');
-      compartir.className = "fa-solid fa-share";
-
-      iconos.appendChild(tenedor);
-      iconos.appendChild(numeroTenedor);
-      iconos.appendChild(comentario);
-      iconos.appendChild(numeroComentario);
-      iconos.appendChild(compartir);
-
-      const p = document.createElement('p');
-      p.textContent = descripcion;
-
-      article.appendChild(span);
-      article.appendChild(tituloPost);
-      article.appendChild(img);
-      article.appendChild(iconos);
-      article.appendChild(p);
-
-      section.appendChild(article);
-    }
-
-    function lanzarParticulas(postIndex) {
-  const tenedorIcon = document.getElementById(`tenedor${postIndex}`);
-  const particlesContainer = tenedorIcon.closest('.particle-container');
-
-  if (particlesContainer) {
-    const numParticles = 20;
-
-    for (let i = 0; i < numParticles; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.top = `${10 + (Math.random() * 20 - 10)}px`;
-      particle.style.left = `${10 + (Math.random() * 20 - 10)}px`;
-
-      particlesContainer.appendChild(particle);
-    }
-
-    setTimeout(() => {
-      particlesContainer.innerHTML = '';
-    }, 1000);
-  }
-}
-
-    function obtenerUsuarios() {
-      return fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .catch(err => mostrarError(err));
-    }
-
-    function obtenerFotosPerfil() {
-      return fetch('https://jsonplaceholder.typicode.com/photos')
-        .then(response => response.json())
-        .catch(err => mostrarError(err));
-    }
-
-    function mostrarError(err) {
-      console.log(err);
-    }
-
-    Promise.all([obtenerUsuarios(), obtenerFotosPerfil()])
-      .then(([usuarios, fotosPerfil]) => {
-        usuarios.forEach((usuario, index) => {
-          const fotoPerfil = fotosPerfil[index].thumbnailUrl;
-          crearPublicacion(usuario.name, `receta ${index + 1}`, 'https://via.placeholder.com/250x250', `Descripción corta de la receta ${index + 1}. #Deliciosa #Cocina`, fotoPerfil, index);
-        });
-      });
-  </script>
+  <footer id="footer">
+    <div id="redes">
+      <a href="#" target="_blank"><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
+      <a href="https://github.com/naatii/diw-UT4-Recetagram" target="_blank"><i class="fa-brands fa-square-github fa-2xl"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+    </div>
+    <div id="links">
+      <a href="#">Información</a>
+      <a href="#">Contacto</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Condiciones</a>
+      <a href="#">Idioma</a></p>
+    </div>
+    <div id="copy">
+      <p >&copy; 2024 Recetagram - Comparte tu cocina
+    </div>
+  </footer>
+  <script src="js/pruebas.js"></script>
 </body>
 </html>

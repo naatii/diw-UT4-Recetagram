@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Fredoka', sans-serif;
-    background-color: #FEFDF4;
+    background-color: #FDFCF2;
     color: white;
     display: grid;
     grid-template-columns: .5fr 1fr .5fr repeat(2, 0);
@@ -25,8 +25,14 @@ body {
   width: 100%;
   z-index: 1000;
   height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
-
+.notificaciones{
+  float: left;
+}
 header h1 {
   margin: 0;
 }
@@ -55,11 +61,12 @@ nav a {
 }
 #main section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  margin-top: 80px; /* Para evitar que las publicaciones se oculten detrás del encabezado fijo */
-  gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
 }
 
 #main section article {
@@ -68,8 +75,8 @@ nav a {
   background-color: #FFAA3C;
   border-radius: 10px;
   font-weight: bold;
-  margin: 20px 0;
   color: black;
+  width: 346px;
 }
 
 .particle {
@@ -88,43 +95,82 @@ nav a {
     opacity: 0;
   }
 }
-#mensajes {
+/* #mensajes {
   grid-area: 2 / 3 / 4 / 4;
   color: black;
   background-color: #FFC763;
   padding: 10px;
   height: 100%;
   font-weight: bold;
-  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-x: hidden; 
   width: 100%;
   margin: 0;
-}
+} */
 
 #footer {
-    grid-area: 5 / 1 / 6 / 4;
+  grid-area: 2 / 3 / 4 / 4; /* Ocultar el footer en dispositivos móviles */
+  margin-top: 20px;
   background-color: #FF4456;
   color: #FEFDF4;
   padding: 10px;
   text-align: center;
   bottom: 0;
   width: 100%;
+  height: 300px;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+footer a {
+  color: black;
+  text-decoration: none;
+}
+footer #links a::after{
+  content: "\00B7";
+}
+footer #links{
+  width: 70%;
+}
+.mensaje{
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
-  #mensajes{
+  #main section article {
+    width: 300px;
+  }
+  #main section article img {
+    width: 255px;
+  }
+  .mensaje{
+    display: block;
+    float: right;
+  }
+  #mensajes {
     display: none;
   }
+
   #aside {
     grid-area: 5 / 1 / 6 / 4;
     /* Mover el aside debajo del contenido principal */
   }
 
   nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ocupar toda la anchura de la pantalla */
+    background-color: #FFC763; /* Ajusta el color de fondo según tus necesidades */
+    z-index: 1000; /* Ajusta el índice z según sea necesario */
+    display: flex;
     flex-direction: row; /* Alinear los iconos horizontalmente en dispositivos móviles */
     justify-content: space-around; /* Espaciar los iconos horizontalmente en dispositivos móviles */
     align-content: center;
     gap: 10px;
-
+    height: 40px; 
   }
 
   #footer {

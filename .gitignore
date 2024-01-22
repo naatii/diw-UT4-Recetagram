@@ -1,0 +1,5 @@
+# Ignorar pruebas.html en la raíz
+pruebas.html
+
+# Ignorar js/pruebas.js
+js/pruebas.js
