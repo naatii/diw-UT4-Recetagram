@@ -1,3 +1,4 @@
+import { post } from './posts.js'
 let contador = 0;
 let liked = false;
 
@@ -64,45 +65,41 @@ function toggleLike(postIndex) {
 }
 
 function compartirPost(postIndex) {
-  const descripcionElemento = document.getElementById(`descripcionPost${postIndex}`);
-  const descripcion = descripcionElemento ? descripcionElemento.textContent : '¡Mira esta increíble receta!';
-
-  // Generar el enlace único para esta publicación
   const postId = `post-${postIndex}`;
   const enlaceUnico = window.location.href.split('#')[0] + `#${postId}`;
 
-  // Mostrar el enlace generado en la consola (puedes quitar esta línea en la versión final)
-  console.log('Enlace generado:', enlaceUnico);
-
   if (navigator.share) {
     navigator.share({
-      text: descripcion,
-      url: enlaceUnico  // Usar el enlace generado
+      title: 'Recetagram',
+      text: '¡Mira este increíble plato de Recetagram!',
+      url: enlaceUnico
     })
-      .then(() => console.log('Contenido compartido con éxito'))
-      .catch((error) => console.error('Error al compartir:', error));
   } else {
-    // Mensaje de fallback si la API Web Share no está disponible
     alert('La funcionalidad de compartir no está disponible en este navegador.');
   }
 }
 
 function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUsuarioPerfil, postIndex) {
   const section = document.getElementById('publicaciones');
+
   const article = document.createElement('article');
   article.id = `post-${postIndex}`
+  article.classList.add("article")
   const span = document.createElement('div');
   span.style.display = 'flex';
   span.style.gap = '10px';
 
   const nombreUsuario = document.createElement('p');
   nombreUsuario.textContent = username;
+  nombreUsuario.id = username
 
   const fotoPerfil = document.createElement('img');
   fotoPerfil.src = fotoUsuarioPerfil;
   fotoPerfil.alt = 'Imagen de usuario';
   fotoPerfil.style.width = '55px';
   fotoPerfil.style.borderRadius = '100%';
+  fotoPerfil.style.marginBottom = '10px';
+
   fotoPerfil.style.float = 'left';
 
   span.appendChild(fotoPerfil);
@@ -117,6 +114,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
     const etiquetaIgrediente = document.createElement('button');
     etiquetaIgrediente.style.margin = '2px';
     etiquetaIgrediente.style.textTransform = 'capitalize';
+    etiquetaIgrediente.style.fontWeight = 'bold';
     etiquetaIgrediente.textContent = `${ingrediente.nombre} (${ingrediente.cantidad})`;
 
     contenedorIngredientes.appendChild(etiquetaIgrediente);
@@ -124,9 +122,14 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
 
   const img = document.createElement('img');
   img.src = imagenSrc;
+  img.id = `img-${postIndex}`;
   img.alt = 'Imagen de la receta';
   img.style.maxWidth = '300px';
   img.style.maxHeight = '300px';
+  img.style.cursor = 'pointer';
+  img.addEventListener("click", () => {
+    post(`post-${postIndex}`)
+})
 
   const iconos = document.createElement('p');
   iconos.style.display = 'flex';
@@ -164,6 +167,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   const p = document.createElement('p');
   p.textContent = descripcion;
   p.id = `descripcionPost${postIndex}`;
+  p.style.fontWeight = "100";
 
   article.appendChild(span);
   article.appendChild(img);
@@ -173,27 +177,6 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   article.appendChild(p);
 
   section.appendChild(article);
-}
-
-function lanzarParticulas(postIndex) {
-  const particlesContainer = document.getElementById('particles');
-  const numParticles = 20;
-
-  const tenedorIcon = document.getElementById(`tenedor${postIndex}`);
-  const rect = tenedorIcon.getBoundingClientRect();
-
-  for (let i = 0; i < numParticles; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.top = `${rect.top + window.scrollY + 10 + (Math.random() * 20 - 10)}px`; // Ajustar la posición según la ubicación del tenedor
-    particle.style.left = `${rect.left + window.scrollX + 10 + (Math.random() * 20 - 10)}px`;
-
-    particlesContainer.appendChild(particle);
-  }
-
-  setTimeout(() => {
-    particlesContainer.innerHTML = '';
-  }, 1000);
 }
 
 function obtenerUsuarios() {
@@ -212,32 +195,12 @@ function mostrarError(err) {
   console.log(err);
 }
 
-function mostrarPublicacionDesdeFragmento(publicaciones) {
-  const fragmento = window.location.hash.substring(1);
-
-  const postId = (fragmento);
-
-  if (postId) {
-    publicaciones.forEach((publicacion) => {
-      const article = document.getElementById(`post-${publicacion.index}`);
-
-      // Verificar si el elemento existe antes de acceder a sus propiedades
-      if (article) {
-        if (publicacion.index === postId) {
-          // Mostrar la publicación deseada
-          article.style.display = 'block';
-          lanzarParticulas(publicacion.index); // Opcional: lanzar partículas al mostrar la publicación
-        } else {
-          // Ocultar las demás publicaciones
-          article.style.display = 'none';
-        }
-      }
-    });
-  }
-}
 const ingredientes = [
-  { nombre: 'queso', cantidad: '100g' },
-  { nombre: 'tomate', cantidad: '2 unidades' },
+  { nombre: 'queso', cantidad: ' 100g ' },
+  { nombre: 'tomate', cantidad: ' 2 unidades ' },
+  { nombre: 'arroz', cantidad: ' 250g ' },
+
+ 
   // Otros ingredientes...
 ];
 // Mostrar publicaciones al cargar la página
@@ -246,13 +209,12 @@ Promise.all([obtenerUsuarios(), obtenerFotosPerfil()])
     const publicaciones = usuarios.map((usuario, index) => {
       const fotoPerfil = fotosPerfil[index].thumbnailUrl;
       crearPublicacion(usuario.name, ingredientes, 'https://via.placeholder.com/300x300', `Descripción corta de la receta ${index}. #Deliciosa #Cocina`, fotoPerfil, index);
-      return {
-        index: index + 1, // Asegúrate de que los índices coincidan con los IDs de publicación
-      };
+
     });
-
-    mostrarPublicacionDesdeFragmento(publicaciones);
-
-    // Escuchar cambios en el fragmento de la URL
-    window.addEventListener('hashchange', () => mostrarPublicacionDesdeFragmento(publicaciones));
   });
+
+ 
+
+
+
+

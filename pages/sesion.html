@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../assets/descarga.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:image" content="https://recetagram.netlify.app/assets/descarga.png">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://recetagram.netlify.app/assets/logo.png">
+    <meta property="og:image:secure_url" content="https://recetagram.netlify.app/assets/logo.png">
+    
+    <script src="https://kit.fontawesome.com/0a9ccace35.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sesion.css">
+    <title>Recetagram | Registro</title>
+</head>
+<body>
+    <header>
+        <h1>Recetagram</h1>
+        <img src="../assets/logo.png" alt="Logo de la empresa">
+    </header>
+    <section>
+        <header>
+            <h2>Inicio de sesión</h2>    
+        </header>
+        <main>
+            <i class="fa-brands fa-google-plus"></i> Inicia sesión con google
+            <div class="separador">
+                <div class="linea"></div>
+                <div class="circulo">o</div>
+                <div class="linea"></div>
+            </div>
+            <form action="../index.html">
+                <label for="email">
+                    Email
+                    <input type="email" id="email" placeholder="test@gmail.com" autocomplete="email" required>
+                </label>
+                
+                <label for="contraseña">
+                    Contraseña
+                    <input type="password" id="contraseña" placeholder="Contraseña" autocomplete="current-password" required>
+                </label>
+                <label for="politicas">
+                    <span><input type="checkbox">Acepto <a href="./profile.html"> las politicas de la empresa</a></span>
+                </label>
+                <a href="#">¿Has olvidado la contraseña?</a>
+                <button>Enviar</button>
+            </form>
+            
+            <div class="registro">  
+                <span>¿No tienes cuenta? <a href="#">Registrate</a></span>
+            </div>
+            
+        </main>
+        
+    </section>
+    <footer>
+        <p>Descarga la aplicación</p>
+        <div class="mobile-apps">
+            <button><i class="fa-brands fa-google-play"></i>Disponible en <b>Play Store</b></button>
+            <button><i class="fa-brands fa-google-play"></i>Disponible en <b>App Store</b></button>
+        </div>
+    </footer>
+</body>
+</html>

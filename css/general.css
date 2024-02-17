@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--complementary-color);
+    color: white;
+    display: grid;
+    width: 100%;
+}

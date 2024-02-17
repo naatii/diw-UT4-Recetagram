@@ -1,0 +1,171 @@
+@import url(./variables.css);
+@import url(./general.css);
+
+body {
+    color: black;
+    font-size: 22px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70%;
+    margin: 0 auto;
+}
+header h1 {
+    color: var(--primary-color);
+    margin: -5px 0;
+
+}
+header img {
+    width: 140px;
+    margin: -50px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: 3em auto 0 auto;
+    max-width: 500px;
+    gap: 5px;
+    background-color: var(--secundary-color);
+    border-radius: 10px;
+}
+section header {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 100%;
+}
+
+section header h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    color: white;
+
+}
+section main{
+    margin: 10px 0;
+    padding: 0 40px;
+}
+section main .separador{
+    display: flex;
+    flex-direction: row;
+}
+section main .separador .linea{
+    position: relative;
+    top: 0.75em;
+    background-color: black;
+    height: 1px;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+section main .separador .circulo{
+    padding: 0 10px;
+}
+
+section main form {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+section main form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+section main form input {
+    border: 2px solid var(--sombra-color);
+    padding: 5px;
+}
+section main form span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+section main form a {
+    color: black;
+    font-size: 22px;
+}
+section main form a:hover {
+    font-weight: bold;
+}
+section main form button {
+    color: white;
+    background:  var(--contrast-color);
+    border: none;
+    padding: 10px 40px;
+    border-radius: 10px;
+
+}
+.registro{
+    padding: 0 0 40px 0;
+    font-size: 22px;
+}
+.registro a{
+    color: black;
+}
+.registro a:hover{
+    font-weight: bold;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    font-weight: bold;
+    text-align: center;
+}
+footer .mobile-apps{
+    text-align: center;
+}
+footer .mobile-apps button{
+    width: 120px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+footer .mobile-apps button i{
+    margin: 0 5px;
+}
+@media screen and (max-width: 500px){
+    header h1{
+        font-size: 25px;
+    }
+    header img{
+        margin: -50px -35px;
+    }
+    header{
+        width: 100%;
+    }
+    section {
+        width: 90%;
+    }
+    section main form{
+        width: 100%;
+    }
+    section main form a {
+        font-size: 12px;
+    }
+    section main form span{
+        font-size: 12px;
+    }
+    .registro{
+        font-size: 12px;
+    }
+}
