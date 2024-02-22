@@ -1,27 +1,31 @@
-@import url(./variables.css);
-@import url(./general.css);
+@import url(./style.css);
+
 
 body {
-    color: black;
+    display: block;
     font-size: 22px;
+    color: var(--text-color);
 }
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 100%;
     margin: 0 auto;
+    background-color: var(--primary-color);
 }
 header h1 {
-    color: var(--primary-color);
-    margin: -5px 0;
+    color: var(--text-color-important);
 
 }
 header img {
     width: 140px;
-    margin: -50px;
+    margin: -40px;
 }
+
 
 section {
     display: flex;
@@ -30,25 +34,31 @@ section {
     align-items: center;
     align-content: center;
     text-align: center;
-    margin: 3em auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 500px;
     gap: 5px;
     background-color: var(--secundary-color);
     border-radius: 10px;
+    margin: 2em auto 0 auto;
 }
 section header {
     background-color: var(--primary-color);
     border-radius: 5px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--text-color);
+
 }
 
 section header h2 {
-    text-align: center;
-    margin: 0 auto;
     padding: 5px;
-    color: white;
+    color: var(--text-color-important);
 
 }
+
 section main{
     margin: 10px 0;
     padding: 0 40px;
@@ -82,6 +92,7 @@ section main form label {
     flex-direction: column;
     width: 100%;
     text-align: left;
+    color: var(--text-color);
 }
 section main form input {
     border: 2px solid var(--sombra-color);
@@ -94,26 +105,28 @@ section main form span{
     font-size: 22px;
 }
 section main form a {
-    color: black;
+    margin: 0 10px;
+    color: var(--text-color);
     font-size: 22px;
 }
 section main form a:hover {
     font-weight: bold;
 }
 section main form button {
-    color: white;
+    color: var(--text-color);
     background:  var(--contrast-color);
     border: none;
     padding: 10px 40px;
     border-radius: 10px;
-
+    font-size: 22px;
 }
 .registro{
     padding: 0 0 40px 0;
     font-size: 22px;
+    color: var(--text-color);
 }
 .registro a{
-    color: black;
+    color: var(--text-color);
 }
 .registro a:hover{
     font-weight: bold;
@@ -127,6 +140,7 @@ footer {
 footer p{
     font-weight: bold;
     text-align: center;
+    color: var(--text-color-important);
 }
 footer .mobile-apps{
     text-align: center;
@@ -135,7 +149,7 @@ footer .mobile-apps button{
     width: 120px;
     background-color: var(--primary-color);
     border: none;
-    color: white;
+    color:var(--text-color);
     padding: 10px;
     border-radius: 10px;
     margin: 10px 0;

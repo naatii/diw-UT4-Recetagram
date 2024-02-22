@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./assets/descarga.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:image" content="https://recetagram.netlify.app/assets/descarga.png">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://recetagram.netlify.app/assets/logo.png">
+    <meta property="og:image:secure_url" content="https://recetagram.netlify.app/assets/logo.png">
+
+    
+    <script src="https://kit.fontawesome.com/0a9ccace35.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <title>Recetagram</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header id="header">
+    <div id="icon-Container">
+      <i class="fa-solid fa-bars fa-lg" id="toggleMenuButton"></i>
+      <i class="fa-solid fa-bell fa-lg notificaciones"></i>
+    </div>
+    <h1><a href="index.html">Recetagram</a></h1>
+    <i class="fa-solid fa-message fa-lg mensaje"></i>
+    
+  </header>
+  <aside id="aside">
+      <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Explorar</a>
+        <a href="#"><i class="fa-solid fa-upload"></i> Crear</a>
+        <a href="./pages/sesion.html"><i class="fa-solid fa-user"></i> Perfil</a>
+        <a id="mensajes" href="#"><i class="fa-solid fa-message mensajes"></i> Mensajes</a>
+          <div id="redes">
+            <a href="https://www.instagram.com/recetagram.oficial/" target="_blank"><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
+            <a href="https://github.com/naatii/diw-UT4-Recetagram" target="_blank"><i class="fa-brands fa-square-github fa-2xl"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+          </div>
+          <div id="links">
+            <a href="#">Información</a>
+            <a href="#">Contacto</a>
+            <a href="#">Privacidad</a>
+            <a href="#">Condiciones</a>
+            <a href="#">Idioma</a>
+          </div>
+          <div id="copy">
+            <a>&copy; 2024 Recetagram - Comparte tu cocina</a>
+          </div>
+      </nav>    
+  </aside>
+  
+  <button id="scrollRightButton"><i class="fa-solid fa-arrow-right"></i></button>
+  <button id="scrollLeftButton"><i class="fa-solid fa-arrow-left"></i></button>
+  <main id="main">
+    <div id="main-scroll-container">
+      <section id="publicaciones"></section>
+    </div>
+  </main>
+  
+  
+  
+  <!-- <aside id="mensajes">
+    
+  </aside>
+  
+  <footer id="footer">
+    
+  </footer> -->
+  <script type="module" src="../js/index.js"></script>
+  <script type="module" src="../js/posts.js"></script>
+  <script type="module" src="../js/scroll.js"></script>
+  <script type="module" src="../js/lanzarParticulas.js"></script>
+  <script type="module" src="../js/togglButton.js"></script>
+  <script type="module" src="../js/redirectPost.js"></script>
+</body>
+</html>

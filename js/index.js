@@ -2,69 +2,112 @@ import { post } from './posts.js'
 let contador = 0;
 let liked = false;
 
+function particules(tenedorIcon) {
+  const rect = tenedorIcon.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2 + window.scrollX;
+  const centerY = rect.top + rect.height / 2 + window.scrollY;
+
+  const numParticles = 20;
+  for (let i = 0; i < numParticles; i++) {
+    const particle = document.createElement('div');
+    particle.style.zIndex = '1';
+    particle.classList.add('particle');
+
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 10 + Math.random() * 20;
+    const particleX = centerX + distance * Math.cos(angle);
+    const particleY = centerY + distance * Math.sin(angle);
+
+    particle.style.top = `${particleY}px`;
+    particle.style.left = `${particleX}px`;
+
+    document.body.appendChild(particle);
+  }
+
+  setTimeout(() => {
+    document.querySelectorAll('.particle').forEach(particle => particle.remove());
+  }, 1000);
+}
+
 // Objeto para almacenar contadores individuales de tenedores
-const contadores = {};
+/**
+ * Esta función activa o desactiva el like según 
+ * @param {postIndex} postIndex indica el número del post
+ */
+
+
+
+const likesData = {
+  likeCounters: {},
+  votedPosts: [],
+};
+
+// Recuperar datos al iniciar la aplicación
+likesData.likeCounters = JSON.parse(localStorage.getItem('likeCounters')) || {};
+likesData.votedPosts = JSON.parse(localStorage.getItem('votedPosts')) || [];
 
 function toggleLike(postIndex) {
   const tenedorIcon = document.getElementById(`tenedor${postIndex}`);
+  const numeroTenedorSpan = document.getElementById(`numeroTenedor${postIndex}`);
 
-  // Obtener el valor actual de 'liked' desde el atributo 'data-liked'
-  let liked = tenedorIcon.dataset.liked === 'true';
+  const contador = likesData.likeCounters[postIndex] || 0;
 
-  // Obtener el contador específico de esta publicación
-  const contador = contadores[postIndex] || 0;
+  particules(tenedorIcon);
 
-  if (liked) {
-    // Disminuir el contador si ya fue clicado antes
-    contadores[postIndex] = contador - 1;
-  } else {
-    // Incrementar el contador si es la primera vez que se clicó o si se deshizo un clic anterior
-    contadores[postIndex] = contador + 1;
-  }
+  // Verificar si el usuario ya ha votado esta publicación
+  if (likesData.votedPosts.includes(postIndex)) {
+    // El usuario ya votó, por lo que quiere deshacer el like
 
-  // Cambiar el estado 'liked'
-  liked = !liked;
+    // Disminuir el contador y cambiar el estado 'liked'
+    likesData.likeCounters[postIndex] = contador - 1;
+    tenedorIcon.dataset.liked = false;
 
-  // Actualizar el valor de 'liked' en el atributo 'data-liked'
-  tenedorIcon.dataset.liked = liked;
-
-  if (tenedorIcon) {
-    const rect = tenedorIcon.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2 + window.scrollX;
-    const centerY = rect.top + rect.height / 2 + window.scrollY;
-
-    const numParticles = 20;
-
-    for (let i = 0; i < numParticles; i++) {
-      const particle = document.createElement('div');
-      particle.style.zIndex = '1';
-      particle.classList.add('particle');
-
-      const angle = Math.random() * 2 * Math.PI;
-      const distance = 10 + Math.random() * 20;
-      const particleX = centerX + distance * Math.cos(angle);
-      const particleY = centerY + distance * Math.sin(angle);
-
-      particle.style.top = `${particleY}px`;
-      particle.style.left = `${particleX}px`;
-
-      document.body.appendChild(particle);
-    }
-
-    setTimeout(() => {
-      document.querySelectorAll('.particle').forEach(particle => particle.remove());
-    }, 1000);
-
-    // Actualizar el contador específico de esta publicación en el HTML
-    document.getElementById(`numeroTenedor${postIndex}`).textContent = contadores[postIndex];
+    numeroTenedorSpan.textContent = likesData.likeCounters[postIndex];
 
     // Cambiar las clases del icono del tenedor según el estado 'liked'
-    tenedorIcon.classList.toggle('fas', liked);
-    tenedorIcon.classList.toggle('far', !liked);
+    tenedorIcon.classList.add('far');
+    tenedorIcon.classList.remove('fas');
+
+    // Eliminar la marca de esta publicación como votada por el usuario
+    likesData.votedPosts = likesData.votedPosts.filter((index) => index !== postIndex);
+
+  } else {
+    // El usuario no ha votado esta publicación, por lo que quiere dar like
+
+    // Incrementar el contador y cambiar el estado 'liked'
+    likesData.likeCounters[postIndex] = contador + 1;
+    tenedorIcon.dataset.liked = true;
+
+    // Actualizar el contenido del número de likes
+    numeroTenedorSpan.textContent = likesData.likeCounters[postIndex];
+
+    // Cambiar las clases del icono del tenedor según el estado 'liked'
+    tenedorIcon.classList.add('fas');
+    tenedorIcon.classList.remove('far');
+
+    // Marcar esta publicación como votada por el usuario
+    likesData.votedPosts.push(postIndex);
   }
+
+  // Guardar los datos actualizados en el objeto JSON
+  saveDataToJSON();
 }
 
-function compartirPost(postIndex) {
+function saveDataToJSON() {
+  // Guardar los datos actualizados en el objeto JSON
+  // (esto debería realizarse siempre que haya cambios significativos en los datos)
+  // Puedes ajustar esta función según tus necesidades específicas.
+  console.log('Guardando datos en el objeto JSON:', likesData);
+}
+function cambiarMetaTags(title, description, image) {
+  document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+  document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+}
+
+// Llamada a la función con los valores deseados
+
+function compartirPost(postIndex, imagenSrc) {
   const postId = `post-${postIndex}`;
   const enlaceUnico = window.location.href.split('#')[0] + `#${postId}`;
 
@@ -72,14 +115,17 @@ function compartirPost(postIndex) {
     navigator.share({
       title: 'Recetagram',
       text: '¡Mira este increíble plato de Recetagram!',
-      url: enlaceUnico
+      url: enlaceUnico,
     })
+    document.addEventListener('DOMContentLoaded', function() {
+      cambiarMetaTags(`Receta ${postIndex}`, "¡Mira este increíble plato de Recetagram!", imagenSrc);
+    });
   } else {
     alert('La funcionalidad de compartir no está disponible en este navegador.');
   }
 }
 
-function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUsuarioPerfil, postIndex) {
+function crearPublicacion(username, ingredientes, imagenSrc, descripciones, fotoUsuarioPerfil, postIndex, etiquetas) {
   const section = document.getElementById('publicaciones');
 
   const article = document.createElement('article');
@@ -87,6 +133,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   article.classList.add("article")
   const span = document.createElement('div');
   span.style.display = 'flex';
+  span.style.alignItems = 'center';
   span.style.gap = '10px';
 
   const nombreUsuario = document.createElement('p');
@@ -106,9 +153,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   span.appendChild(nombreUsuario);
 
   const contenedorIngredientes = document.createElement('div');
-  const textoIgredientes = document.createElement('span');
-  textoIgredientes.textContent = "Ingredientes: "
-  textoIgredientes.appendChild(contenedorIngredientes);
+
 
   ingredientes.forEach(ingrediente => {
     const etiquetaIgrediente = document.createElement('button');
@@ -129,7 +174,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   img.style.cursor = 'pointer';
   img.addEventListener("click", () => {
     post(`post-${postIndex}`)
-})
+  })
 
   const iconos = document.createElement('p');
   iconos.style.display = 'flex';
@@ -144,7 +189,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
 
   const numeroTenedor = document.createElement('span');
   numeroTenedor.id = `numeroTenedor${postIndex}`;
-  numeroTenedor.textContent = 0;
+  numeroTenedor.textContent = likesData.likeCounters[postIndex] || 0;
 
   const comentario = document.createElement('i');
   comentario.className = "fa-solid fa-comments";
@@ -154,7 +199,7 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
 
   const compartir = document.createElement('i');
   compartir.id = `compartir${postIndex}`;
-  compartir.addEventListener("click", () => compartirPost(postIndex));
+  compartir.addEventListener("click", () => compartirPost(postIndex, imagenSrc));
   compartir.style.cursor = 'pointer';
   compartir.className = "fa-solid fa-share";
 
@@ -163,18 +208,25 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripcion, fotoUs
   iconos.appendChild(comentario);
   iconos.appendChild(numeroComentario);
   iconos.appendChild(compartir);
+  const contenedorPublicacion = document.createElement('div');
+  const descripcionAleatoria = descripciones[Math.floor(Math.random() * descripciones.length)];
 
-  const p = document.createElement('p');
-  p.textContent = descripcion;
-  p.id = `descripcionPost${postIndex}`;
-  p.style.fontWeight = "100";
+      // Crear un párrafo para la descripción
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>@${descripcionAleatoria.usuario}</strong>: ${descripcionAleatoria.contenido} ${descripcionAleatoria.etiquetas.join(' ')}`;
+      contenedorPublicacion.appendChild(p);
+
+
+  // Agregamos el párrafo y el contenedor de etiquetas al DOM
+  // Asumo que contenedorIngredientes es el elemento al que deseas agregar estos elementos.
+
 
   article.appendChild(span);
   article.appendChild(img);
   article.appendChild(iconos);
   article.appendChild(contenedorIngredientes);
 
-  article.appendChild(p);
+  article.appendChild(contenedorPublicacion);
 
   section.appendChild(article);
 }
@@ -184,11 +236,14 @@ function obtenerUsuarios() {
     .then(response => response.json())
     .catch(err => mostrarError(err));
 }
-
-function obtenerFotosPerfil() {
-  return fetch('https://jsonplaceholder.typicode.com/photos')
+function obtenerFotos() {
+  return fetch('https://picsum.photos/v2/list')
     .then(response => response.json())
     .catch(err => mostrarError(err));
+}
+
+function obtenerFotosPerfil(index) {
+  return `https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`
 }
 
 function mostrarError(err) {
@@ -200,21 +255,27 @@ const ingredientes = [
   { nombre: 'tomate', cantidad: ' 2 unidades ' },
   { nombre: 'arroz', cantidad: ' 250g ' },
 
- 
   // Otros ingredientes...
 ];
+const descripcion = [
+  { prefijo: '#', etiqueta: 'delucioso' },
+  { prefijo: '#', etiqueta: 'cocina' },
+  { prefijo: '#', etiqueta: 'recetagram' },
+  { prefijo: '@', etiqueta: 'recetagram' },
+]
 // Mostrar publicaciones al cargar la página
-Promise.all([obtenerUsuarios(), obtenerFotosPerfil()])
-  .then(([usuarios, fotosPerfil]) => {
+Promise.all([obtenerUsuarios(), obtenerFotosPerfil(), obtenerFotos()])
+  .then(([usuarios, fotosPerfil, fotos]) => {
     const publicaciones = usuarios.map((usuario, index) => {
-      const fotoPerfil = fotosPerfil[index].thumbnailUrl;
-      crearPublicacion(usuario.name, ingredientes, 'https://via.placeholder.com/300x300', `Descripción corta de la receta ${index}. #Deliciosa #Cocina`, fotoPerfil, index);
-
+      const descripciones  = [
+        { usuario: usuario.username, contenido: "Esta maravillosa receta ha sido creada con muy pocos ingredientes", etiquetas: ["#delicioso", "#cocina", "#recetagram", "@recetagram"] },
+        { usuario: usuario.username, contenido: "Esta receta está creada al gusto del consumidor", etiquetas: ["#recetafacil", "#cocina", "#recetagram", "@recetagram"] },
+        { usuario: usuario.username, contenido: "Receta ideal para una cena ideal", etiquetas: ["#cenaenpareja", "#cocina", "#recetagram", "@recetagram"] },
+        { usuario: usuario.username, contenido: "Receta ideal para bodas con muchos comensales", etiquetas: ["#boda", "#cocina", "#recetagram", "@recetagram"] },
+        { usuario: usuario.username, contenido: "Menú de catering para 200 comensales", etiquetas: ["#catering", "#cocina", "#recetagram", "@recetagram", "@cateringdcortes"] },
+      ]
+      const fotoPerfil = obtenerFotosPerfil(index);
+      const foto = fotos[index];
+      crearPublicacion(usuario.name, ingredientes, foto.download_url, descripciones , fotoPerfil, index);
     });
   });
-
- 
-
-
-
-

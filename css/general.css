@@ -1,9 +1,17 @@
+@import url(./variables.css);
 body {
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
     background-color: var(--complementary-color);
-    color: white;
     display: grid;
     width: 100%;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    grid-template-columns: var(--columns-grid);
+    grid-template-rows: var(--rows-grid);
+    overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+    display: none;
 }

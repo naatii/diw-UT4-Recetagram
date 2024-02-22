@@ -1,0 +1,144 @@
+@media only screen and (max-width: 1200px) {
+  #contacto {
+    height: 60%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  
+  textarea{
+    width: 90%;
+    margin: 0 auto;
+  } 
+}
+
+@media only screen and (max-width: 600px) {
+    body{
+      display: block;
+      overflow-y: scroll;
+
+    }
+    #main{
+      overflow-y: visible;
+      overflow-x: visible;
+      margin: 0 auto;
+      width: 100%;
+  
+    }
+    .oculto ~ #main {
+      transform: translateX(0); 
+    }
+    
+    
+    #toggleMenuButton{
+      display: none;
+    }
+    
+    #scrollLeftButton, #scrollRightButton{
+      display: none;
+    }
+    
+    #main-scroll-container {
+      display: block;
+      width: 100%;
+      overflow-y: visible;
+      overflow-x: visible;
+    }
+    #main section{
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+   
+    .mensaje{
+      display: block;
+      float: right;
+    }
+    #mensajes {
+      display: none;
+    }
+    #theme {
+      display: none;
+    }
+  
+    #aside {
+      grid-area: 5 / 1 / 6 / 4;
+      /* Mover el aside debajo del contenido principal */
+    }
+  
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%; /* Ocupar toda la anchura de la pantalla */
+      background-color: var(--secundary-color); /* Ajusta el color de fondo según tus necesidades */
+      z-index: 1000; /* Ajusta el índice z según sea necesario */
+      display: flex;
+      flex-direction: row; /* Alinear los iconos horizontalmente en dispositivos móviles */
+      justify-content: space-around; /* Espaciar los iconos horizontalmente en dispositivos móviles */
+      align-content: center;
+      gap: 0;
+      height: 40px; 
+      font-size: 15px;
+    }
+    nav a {
+      color: var(--text-color);
+    }
+  
+    #redes, #links, #copy {
+      display: none; /* Ocultar el footer en dispositivos móviles */
+    }
+
+    #contacto{
+      width: 90%;
+    }
+    
+  }
+  @media only screen and (max-width: 338px) { 
+    nav {
+      gap: 0;
+    }
+    nav a {
+      font-size: 15px;
+    }
+    #main section article {
+      width: 100%;
+    }
+    #main section article img {
+      width: 100%;
+    }
+    header{
+      gap: 0;
+    }
+    #contacto main form {
+      width: 100%;
+    }
+    #contacto main form div {
+      width: 100%;
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 282px) { 
+    
+    header{
+      font-size: 12px;
+    }
+    nav {
+      gap: 0;
+    }
+    nav a {
+      font-size: 10px;
+    }
+    #main{
+      width: 100%;
+    }
+    #main section article {
+      width: 100%;
+    }
+    #main section article img {
+      width: 100%;
+    }
+    
+    #contacto main form input{
+      width: 100%;
+    }
+    
+  }

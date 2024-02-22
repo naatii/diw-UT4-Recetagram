@@ -1,0 +1,34 @@
+#header {
+    grid-area: var(--header-area); 
+   background-color: var(--primary-color);
+   color: var(--text-color-important);
+   padding: var(--espaciado);
+   text-align: center;
+   width: 100%;
+   z-index: 1000;
+   height: var(--header-height);
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   align-content: center;
+ }
+ #icon-Container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 2em;
+ }
+ header .mensaje{
+   display: none;
+ }
+ header h1 {
+   margin: 0;
+ }
+ header a {
+   color: var(--text-color-important);
+ }
+ header .fa-lg {
+   cursor: pointer;
+   font-size: 2em;
+ }

@@ -6,19 +6,39 @@
   --complementary-color: #FEFDF4;
   --contrast-color: #FF4456;
   --sombra-color: #FFAA3C;
+  --text-color-important: black;
+  --buttom-color: lightgray;
   /* heights y widths */
   --header-height: 50px;
   --aside-width: 246px;
   /* spacing */
   --espaciado: 17px;
-  --nav-spacing-links: 46px;
+  --nav-spacing-links: 36px;
+  --nav-gap-links: 46px;
   /* grid tamplate */
   --columns-grid: .5fr 2fr .5fr repeat(2, 0);
-  --rows-grid: 0fr 10fr 7.5fr;
+  --rows-grid: 0fr 1fr 0fr;;
   /* grid areas */
   --header-area: 1 / 1 / 2 / 4;
   --aside-area: 2 / 1 / 4 / 1;
   --main-area: 2 / 2 / 4 / 4;
+  --contacto-area: 2 / 1 / 4 / 4;
   /* font */
   --font-family: 'Fredoka', sans-serif;
+}
+[tema="dark"] {
+  --primary-color: #3f3f3f;
+  --secundary-color: #717171;
+  --complementary-color: #121212;
+  --contrast-color: #18C894;
+  /* --contrast-color: #5e43f3; */
+  /* --contrast-color: #FFC763; */
+  --sombra-color: #3f3f3f;
+  --text-color: white;
+  --text-color-important: #18C894;
+  /* --text-color-important: #5e43f3; */
+  /* --text-color-important: #FFAA3C; */
+  --text-color: white;
+  --buttom-color: transparent;
+
 }

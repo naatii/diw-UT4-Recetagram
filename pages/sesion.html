@@ -24,7 +24,23 @@
         <img src="../assets/logo.png" alt="Logo de la empresa">
     </header>
     <section>
+        
         <header>
+            <details id="theme">
+                <summary><i class="fa-solid fa-palette"></i> theme</summary>
+                <label id="switch-black" style="display: block;">
+                    Dark
+                    <input type="radio" name="tema" value="dark">
+                </label>
+                <label id="switch-light" style="display: block;">
+                    Light
+                    <input type="radio" name="tema" value="light">
+                </label>
+                <label id="switch-default" style="display: block;">
+                    Default
+                    <input type="radio" name="tema" value="defaul" checked>
+                </label>
+            </details>
             <h2>Inicio de sesión</h2>    
         </header>
         <main>
@@ -45,7 +61,7 @@
                     <input type="password" id="contraseña" placeholder="Contraseña" autocomplete="current-password" required>
                 </label>
                 <label for="politicas">
-                    <span><input type="checkbox">Acepto <a href="./profile.html"> las politicas de la empresa</a></span>
+                    <span><input type="checkbox" required autocomplete="billing">Acepto <a href="./profile.html"> las politicas de la empresa</a></span>
                 </label>
                 <a href="#">¿Has olvidado la contraseña?</a>
                 <button>Enviar</button>
@@ -65,5 +81,6 @@
             <button><i class="fa-brands fa-google-play"></i>Disponible en <b>App Store</b></button>
         </div>
     </footer>
+    <script src="../js/toggleTheme.js"></script>
 </body>
 </html>

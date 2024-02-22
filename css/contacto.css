@@ -1,0 +1,84 @@
+@import url(./style.css);
+
+
+section {
+    grid-area: var(--main-area);
+    text-align: center;
+    margin: 3em auto ;
+    width: 50%;
+    height: 80%;
+    gap: 5px;
+    background-color: var(--secundary-color);
+    border-radius: 10px;
+}
+section header {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 100%;
+}
+
+section header h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    color: var(--text-color);
+
+}
+section main{
+    margin: 10px 0;
+    padding: 0 40px;
+    width: 100%;
+}
+section main form {
+    margin: 20px auto;
+    gap: 10px;
+    color: var(--text-color);
+
+}
+
+section main form label {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: 0 20px ;
+}
+section main form div {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 0 20px;
+    margin: 0 auto;
+}
+section main form input {
+    border: 2px solid var(--sombra-color);
+    padding: 5px;
+}
+
+
+section main form a:hover {
+    font-weight: bold;
+}
+section main form button {
+    color: white;
+    background:  var(--contrast-color);
+    border: none;
+    padding: 10px 40px;
+    border-radius: 10px;
+
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    border: 2px solid var(--sombra-color);
+}
+section main form #contador{
+    justify-content: right;
+    width: 100%;
+    margin-bottom: 20px;    
+}
