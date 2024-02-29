@@ -1,8 +1,3 @@
-@media only screen and (max-width: 1200px) {
-  #contacto {
-    height: 60%;
-  }
-}
 @media only screen and (max-width: 800px) {
   
   textarea{
@@ -63,27 +58,37 @@
       grid-area: 5 / 1 / 6 / 4;
       /* Mover el aside debajo del contenido principal */
     }
-  
-    nav {
+    nav{
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%; /* Ocupar toda la anchura de la pantalla */
+      width: 100%;
+    }
+    nav ul {
       background-color: var(--secundary-color); /* Ajusta el color de fondo según tus necesidades */
-      z-index: 1000; /* Ajusta el índice z según sea necesario */
-      display: flex;
-      flex-direction: row; /* Alinear los iconos horizontalmente en dispositivos móviles */
-      justify-content: space-around; /* Espaciar los iconos horizontalmente en dispositivos móviles */
-      align-content: center;
-      gap: 0;
       height: 40px; 
+      z-index: 1000; /* Ajusta el índice z según sea necesario */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      justify-content: space-around;
       font-size: 15px;
+    }
+   
+    nav ul li {
+      padding: 10px;
     }
     nav a {
       color: var(--text-color);
     }
   
-    #redes, #links, #copy {
+    nav ul #redes, nav ul #links, nav ul #copy {
       display: none; /* Ocultar el footer en dispositivos móviles */
     }
 

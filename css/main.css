@@ -37,7 +37,7 @@
     background-color: var(--contrast-color); /* Color primario de la paleta */
     color: #FEFDF4; /* Texto en color claro para destacar */
     position: absolute;
-    top: 9%;
+    top: 10%;
   }
   #scrollLeftButton{
     left: 40%;
@@ -64,7 +64,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
     align-content: center;
-    margin: 0 auto;;
+    margin: 0 auto;
   }
   .bold {
     font-weight: bold;

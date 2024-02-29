@@ -13,7 +13,7 @@
   --aside-width: 246px;
   /* spacing */
   --espaciado: 17px;
-  --nav-spacing-links: 36px;
+  --nav-spacing-links: 3px;
   --nav-gap-links: 46px;
   /* grid tamplate */
   --columns-grid: .5fr 2fr .5fr repeat(2, 0);
@@ -40,5 +40,4 @@
   /* --text-color-important: #FFAA3C; */
   --text-color: white;
   --buttom-color: transparent;
-
 }
