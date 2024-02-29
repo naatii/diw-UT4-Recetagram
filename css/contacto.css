@@ -11,6 +11,13 @@ section {
     background-color: var(--secundary-color);
     border-radius: 10px;
 }
+.oculto ~ section {
+    position: absolute;
+    top: 9%;
+    left: 6%;
+    width: 90%;
+    z-index: 1;
+  }
 section header {
     background-color: var(--primary-color);
     border-radius: 5px;

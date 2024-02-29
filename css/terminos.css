@@ -1,0 +1,46 @@
+@import url(./style.css);
+
+body{
+    overflow: auto;
+}
+section {
+    grid-area: var(--main-area);
+    text-align: center;
+    margin: 3em auto ;
+    width: 90%;
+    gap: 5px;
+    background-color: var(--secundary-color);
+    border-radius: 10px;
+}
+section header {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 100%;
+}
+.oculto ~ section {
+    position: absolute;
+    top: 9%;
+    left: 6%;
+    width: 90%;
+    z-index: 1;
+  }
+
+section header h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    color: var(--text-color);
+
+}
+section main{
+    margin: 10px auto;
+    padding: 0 40px;
+    width: 100%;
+}
+section main article{
+    margin: 10px auto;
+    max-width: 100%;
+}
+section main article h2, section main article p{
+    font-weight: 600;
+}
