@@ -2,7 +2,6 @@
 ---
 ###### Por ➡️ Natalia cortés
 ---
-<iframe width="560" height="315" src="https://www.openai.com/" frameborder="0" allowfullscreen></iframe>
 
 
 ![Imagen de portada de Recetagram](./assets/Frame.png)
