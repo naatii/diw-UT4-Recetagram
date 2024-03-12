@@ -3,7 +3,7 @@
 ###### Por ➡️ Natalia cortés
 ---
 
-[ENLACE](https://github.com/naatii/diw-UT4-Recetagram/blob/5a7f30046d7cc320490791f558f79928522940c8/js/lanzarParticulas.js#L2-L7)
+https://github.com/naatii/diw-UT4-Recetagram/blob/5a7f30046d7cc320490791f558f79928522940c8/js/lanzarParticulas.js#L2-L7
 
 
 ![Imagen de portada de Recetagram](./assets/Frame.png)
