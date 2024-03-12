@@ -3,9 +3,6 @@
 ###### Por ➡️ Natalia cortés
 ---
 
-https://github.com/naatii/diw-UT4-Recetagram/blob/5a7f30046d7cc320490791f558f79928522940c8/js/lanzarParticulas.js#L2-L7
-
-
 ![Imagen de portada de Recetagram](./assets/Frame.png)
 
 Recetagram es una vibrante comunidad en línea diseñada exclusivamente para apasionados cocineros que desean compartir su arte culinario y conocimientos con otros amantes de la cocina. Inspirada en la filosofía de "compartir es vivir", esta red social proporciona un espacio acogedor y creativo donde los chefs, tanto aficionados como profesionales, pueden conectar, explorar nuevas recetas y aprender unos de otros.
