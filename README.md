@@ -3,12 +3,6 @@
 ###### Por ➡️ Natalia cortés
 ---
 
-
-[Visita el sitio web de OpenAI][openai]
-
-[openai]: https://www.openai.com/
-
-
 ![Imagen de portada de Recetagram](./assets/Frame.png)
 
 Recetagram es una vibrante comunidad en línea diseñada exclusivamente para apasionados cocineros que desean compartir su arte culinario y conocimientos con otros amantes de la cocina. Inspirada en la filosofía de "compartir es vivir", esta red social proporciona un espacio acogedor y creativo donde los chefs, tanto aficionados como profesionales, pueden conectar, explorar nuevas recetas y aprender unos de otros.
