@@ -182,7 +182,6 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripciones, foto
 
   const tenedor = document.createElement('i');
   tenedor.id = `tenedor${postIndex}`;
-  tenedor.style.zIndex = '2'
   tenedor.className = "fa-solid fa-utensils";
   tenedor.style.cursor = 'pointer';
   tenedor.addEventListener("click", () => toggleLike(postIndex));
@@ -193,7 +192,6 @@ function crearPublicacion(username, ingredientes, imagenSrc, descripciones, foto
 
   const comentario = document.createElement('i');
   comentario.className = "fa-solid fa-comments";
-  comentario.style.zIndex = '2'
   const numeroComentario = document.createElement('span');
   numeroComentario.textContent = 0;
 

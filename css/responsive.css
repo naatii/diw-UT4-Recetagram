@@ -58,6 +58,9 @@
       grid-area: 5 / 1 / 6 / 4;
       /* Mover el aside debajo del contenido principal */
     }
+    .nav-icon{
+      display: none;
+    }
     nav{
       position: fixed;
       bottom: 0;
@@ -97,13 +100,26 @@
     }
     
   }
+  @media only screen and (max-width: 450px) {
+    .nav-normal{
+      display: none;
+    }
+    .nav-icon{
+      display: flex;
+      font-size: 19px;
+    }
+  } 
   @media only screen and (max-width: 338px) { 
     nav {
       gap: 0;
     }
-    nav a {
-      font-size: 12px;
+    .nav-normal{
+      display: none;
     }
+    .nav-icon{
+      font-size: 15px;
+    }
+    
     #main section article {
       width: 100%;
     }
@@ -130,8 +146,11 @@
     nav {
       gap: 0;
     }
+    .nav-icon{
+      font-size: 12px;
+    }
     nav a {
-      font-size: 5px;
+      font-size: 10px;
     }
     #main{
       width: 100%;
