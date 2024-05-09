@@ -51,24 +51,37 @@
                 <div class="linea"></div>
             </div>
             <form action="../index.html" id="from">
+                <label for="nombre">
+                    * Nombre
+                    <input type="text" id="nombre" placeholder="Nombre completo" autocomplete="nombre" required pattern="[A-Za-zÁ-ú\s]+" title="Solo se permiten letras y espacios.">
+                    <span class="toolkit">* Solo se permiten letras y espacios.</span>
+                </label>
+                <label for="username">
+                    * Username
+                    <input type="text" id="username" placeholder="Nombre de usuario" autocomplete="username" required pattern="[a-zA-Z0-9_]+" title="Solo se permiten letras, números y guiones bajos.">
+                    <span class="toolkit">* Solo se permiten letras, números y guiones bajos.</span>
+                </label>
                 <label for="email">
-                    Email
-                    <input type="email" id="email" placeholder="test@gmail.com" autocomplete="email" required>
+                    * Email
+                    <input type="email" id="email" placeholder="test@gmail.com" autocomplete="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa una dirección de correo electrónico válida." required>
                 </label>
                 
                 <label for="contraseña">
-                    Contraseña
-                    <input type="password" id="contraseña" placeholder="Contraseña" autocomplete="current-password" required>
+                    * Contraseña
+                    <input type="password" id="contraseña" placeholder="Contraseña" required>
+                </label>
+                <label for="repetir-contraseña">
+                    * Confirmar Contraseña
+                    <input type="password" id="contraseña" placeholder="Contraseña" required>
                 </label>
                 <label for="politicas">
                     <span><input type="checkbox" required autocomplete="billing">Acepto <a href="./profile.html"> las politicas de la empresa</a></span>
                 </label>
-                <a href="#">¿Has olvidado la contraseña?</a>
                 <button>Enviar</button>
             </form>
             
             <div class="registro">  
-                <span>¿No tienes cuenta? <a href="./registro.html">Registrate</a></span>
+                <span>¿Ya tienes cuenta? <a href="./sesion.html">Inicia sesión</a></span>
             </div>
             
         </main>

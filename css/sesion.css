@@ -5,6 +5,7 @@ body {
     display: block;
     font-size: 22px;
     color: var(--text-color);
+    overflow: auto;
 }
 
 header {
@@ -119,6 +120,9 @@ section main form button {
     padding: 10px 40px;
     border-radius: 10px;
     font-size: 22px;
+}
+section main form label .toolkit{
+    font-size: 12px;
 }
 .registro{
     padding: 0 0 40px 0;
