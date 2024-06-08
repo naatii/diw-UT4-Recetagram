@@ -25,6 +25,7 @@
   --contacto-area: 2 / 1 / 4 / 4;
   /* font */
   --font-family: 'Fredoka', sans-serif;
+  --color-line: rgba(255, 255, 255, 0.2);
 }
 [tema="dark"] {
   --primary-color: #3f3f3f;
@@ -40,4 +41,25 @@
   /* --text-color-important: #FFAA3C; */
   --text-color: white;
   --buttom-color: transparent;
+  --color-line: rgba(0, 0, 0, 0.2);
+}
+[tema="aqua"] {
+  --primary-color: #007B7F; /* Un tono profundo de aqua */
+  --secundary-color: #33AFA1; /* Un tono más claro de aqua */
+  --complementary-color: #005F61; /* Un tono más oscuro y profundo para el contraste */
+  --contrast-color: #50E3C2; /* Un color vibrante y fresco de aqua */
+  --sombra-color: #004F4F; /* Sombra más oscura para los elementos */
+  --text-color: #FFFFFF; /* Blanco para el texto */
+  --text-color-important: #50E3C2; /* Contraste importante en aqua */
+  --buttom-color: transparent; /* Transparente para botones */
+}
+[tema="pink"] {
+  --primary-color: #ff69b4; /* Un tono brillante de rosa */
+  --secundary-color: #ff85c1; /* Un tono más claro de rosa */
+  --complementary-color: #b03060; /* Un tono oscuro de rosa para el contraste */
+  --contrast-color: #ff1493; /* Un rosa vibrante para elementos de contraste */
+  --sombra-color: #8b0a50; /* Un rosa oscuro para sombras */
+  --text-color: #ffffff; /* Blanco para el texto */
+  --text-color-important: #ff1493; /* Rosa vibrante para destacar texto importante */
+  --buttom-color: transparent; /* Transparente para botones */
 }

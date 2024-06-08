@@ -1,6 +1,5 @@
 @import url(./style.css);
 
-
 section {
     grid-area: var(--main-area);
     text-align: center;

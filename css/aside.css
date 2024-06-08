@@ -1,63 +1,81 @@
-#aside{
-    grid-area: var(--aside-area);
-    max-width: var(--aside-width);
-    transition: transform 0.1s ease-in;
- }
- .oculto{
-   transform: translateX(-100%);
- }
- 
- nav ul{
+#aside {
+  grid-area: var(--aside-area);
+  max-width: var(--aside-width);
+  height: 100vh; /* Asegurarse de que ocupe toda la ventana */
+  transition: transform 0.1s ease-in;
+  background-color: var(--primary-color); /* Añadido para visualizar el aside */
+}
+
+.oculto {
+  transform: translateX(-100%);
+}
+
+.nav-icon {
+  display: none;
+}
+
+nav ul {
   text-align: left;
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 20px;
   background-color: var(--primary-color);
+}
 
- }
- nav ul li{
-    padding: var(--espaciado);
- }
- nav a {
-   color: var(--text-color);
-   text-decoration: none;
-  }
-  nav a:hover{
+nav ul li {
+  padding: var(--espaciado);
+}
 
-    color: var(--text-color-important);
-  }
-  .active {
-    font-weight: bold;
-  }
-  nav a:active {
-    font-weight: bold;
- }
- 
- #redes div{
-   margin: 10px 0;
-   display: flex;
-   flex-direction: row;
-   gap: var(--nav-gap-links);
-   justify-content: left;
-   text-align: left;
-  }
-  #redes a{
-   color: var(--text-color-important);
-  
- }
- nav #redes, nav #links, nav #copy{
-   margin: 0 auto;
-   text-align: center;
- }
- nav summary, nav label{
-   color: var(--text-color);
-   cursor: pointer;
- }
- nav summary:hover, nav label:hover{
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+nav a:hover {
   color: var(--text-color-important);
 }
- nav details label{
-   margin: 0 25px;
-   display: block;
- }
+
+.active {
+  font-weight: bold;
+}
+
+nav a:active {
+  font-weight: bold;
+}
+
+#redes div {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--nav-gap-links);
+  justify-content: left;
+  text-align: left;
+}
+
+#redes a {
+  color: var(--text-color-important);
+}
+
+nav #redes,
+nav #links,
+nav #copy {
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav summary,
+nav label {
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+nav summary:hover,
+nav label:hover {
+  color: var(--text-color-important);
+}
+
+nav details label {
+  margin: 0 25px;
+  display: block;
+}
