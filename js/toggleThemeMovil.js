@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (theme === 'dark') {
       root.setAttribute('tema', 'dark');
       hat.classList.add('flipped');
-    } else {
+    } else if(theme === 'light') {
       root.setAttribute('tema', 'light');
       hat.classList.remove('flipped');
     }

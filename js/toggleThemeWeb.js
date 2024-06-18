@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let timerId; // Variable para almacenar el ID del temporizador
 
+
   themeCheckbox.addEventListener('change', function (event) {
     clearTimeout(timerId); // Limpiar el temporizador existente
 

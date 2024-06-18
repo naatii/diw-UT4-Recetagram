@@ -21,12 +21,62 @@
 <body>
   <header id="header">
     <div id="icon-Container">
+      <div class='wrap'>
+        <input name="light-dark" type='checkbox'>
+        <div class='griddle'></div>
+        <div class='cake'></div>
+        <div class='syrup'></div>
+        <div class='butter'></div>
+        <div class='butter two'></div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+      <svg class="svg" viewBox="0 0 400 400">
+        <defs>
+          <filter id="duotone-filter-post-one">
+            <feColorMatrix type="matrix"
+              values="0.14453125 0 0 0 0.33203125 0.71875 0 0 0 0.27734375 -0.34765625 0 0 0 0.73046875 0 0 0 1 0">
+            </feColorMatrix>
+          </filter>
+        </defs>
+      </svg>
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggleSwitch" name="toggleSwitch">
+        <label for="toggleSwitch" class="chef-hat">
+            <div class="hat-top">
+                <div class="half-circle left"></div>
+                <div class="half-circle middle"></div>
+                <div class="half-circle right"></div>
+            </div>
+            <div class="hat-body">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="line line4"></div>
+                <div class="line line5"></div>
+            </div>
+            <div class="hat-brim"></div>
+        </label>
+    </div>
       <i class="fa-solid fa-bars fa-lg" id="toggleMenuButton"></i>
-      <img src="../assets/descarga.png" alt="asda" width="50px">
     </div>
     <h1><a href="index.html">Recetagram</a></h1>
-    <i class="fa-solid fa-bell fa-lg notificaciones"></i>
-    <i class="fa-solid fa-message fa-lg mensaje"></i>
+    <div class="icon-group">
+      
+      <i class="fa-solid fa-bell fa-lg notificaciones"></i>
+      <i class="fa-solid fa-message fa-lg mensaje"></i>
+      <img src="../assets/descarga.png" alt="Logo" width="50px">
+      <!-- Contenido adicional -->
+    </div>
+
+    
 
   </header>
   <aside id="aside">
@@ -40,15 +90,15 @@
         <li><a  href="./sesion.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
         <li id="mensajes"><a  href="#"><i class="fa-solid fa-message mensajes"></i> Mensajes </a></li>
         <li id="theme">
-          <details >
+          <details>
             <summary><i class="fa-solid fa-palette"></i> theme</summary>
-            <label id="switch-black">
-              Dark
-              <input type="radio" name="tema" value="dark">
+            <label id="switch-aqua">
+              Aqua
+              <input type="radio" name="tema" value="aqua">
             </label>
-            <label id="switch-light">
-              Light
-              <input type="radio" name="tema" value="light">
+            <label id="switch-pink">
+              pink
+              <input type="radio" name="tema" value="pink">
             </label>
             <label id="switch-default">
               Default
@@ -102,11 +152,14 @@
     
   </footer> -->
   <script type="module" src="../js/index.js"></script>
+  <!-- <script type="module" src="js/pruebas.js"></script> -->
   <script type="module" src="../js/posts.js"></script>
   <script type="module" src="../js/scroll.js"></script>
   <script type="module" src="../js/lanzarParticulas.js"></script>
   <script type="module" src="../js/togglButton.js"></script>
   <script type="module" src="../js/redirectPost.js"></script>
-  <script src="../js/toggleTheme.js"></script>
+  <script src="../js/toggleThemeWeb.js"></script>
+  <script src="../js/toggleThemeMovil.js"></script>
+  <script src="../js/changeTheme.js"></script>
 </body>
 </html>
